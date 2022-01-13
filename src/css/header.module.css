@@ -1,0 +1,91 @@
+header{
+    background-color: #fff159; 
+    padding: .5em;
+}
+
+/*Conteiner Header FIRST*/
+.conteiner__header__first{
+    display: flex;
+}
+.title__header{
+    flex: 1 1 auto;
+    align-self: center;
+}
+
+.search{
+    flex: 1 1 auto;
+    align-self: center;
+    text-align: center;
+    
+    
+}
+.search input{   
+   padding: .7em;
+   width: 65vh;
+   border: none;
+   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 20%);
+   
+}
+.button__search{
+    width: 4em;
+    height: 2.5em;
+    background-color: white;
+    border: none;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 20%);
+}
+.user__account{
+    flex: 1 1 auto;
+    align-self: center;
+}
+
+.user__account ul{
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    
+}
+.user__account ul li{
+    padding: .5em 1em;
+}
+
+.user__account:hover,.title__header{
+    cursor: pointer;
+}
+
+/*Conteiner Header SECOND*/
+.conteiner__header__second{
+    display: flex;
+}
+.item__1{
+    flex: 1 1 auto;
+    align-self: center;
+}
+
+.item__2{
+    flex: 1 1 auto;
+    align-self: center;
+    text-align: end;
+    margin: 1em;
+}
+
+.nav__menu{
+    flex: 1 1 auto;
+    align-self: center;
+}
+
+.nav__menu ul{
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+.nav__menu ul li{
+    padding: .5em .5em .5em .5em;
+    width: 5em;
+    text-align: center;
+}
+.nav__menu ul li:hover{
+    cursor: pointer;
+    background-color: rgba(252, 252, 252, .9)
+}
+
