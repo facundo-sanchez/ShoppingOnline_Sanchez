@@ -1,12 +1,15 @@
 import React from 'react'
-import Style from '../css/footer.module.css'
+import Styles from '../css/footer.module.css'
 export default function footer() {
     return (
         <footer>
-            <div>
-                <p className={Style.parrafo}>Facundo Sanchez</p>
-                <p>CoderHouse</p>
+            <div className={Styles.author}>
+                <p>Developed by Facundo Sanchez</p>
             </div>
+            <div className={Styles.title__footer}>
+                <p>Full Stack Developer</p>
+            </div>
+
         </footer>
     )
 }

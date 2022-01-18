@@ -3,8 +3,10 @@ import Header from './components/header';
 import Footer from './components/footer';
 import Main from './components/main';
 
-function App() {
+export default function App() {
+
   return (
+    
     <div className="App">
         <Header/>
         <Main/>
@@ -12,5 +14,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

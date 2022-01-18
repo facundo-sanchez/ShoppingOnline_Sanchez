@@ -1,7 +1,11 @@
 
 footer{
-    background-color: #fff159; 
+    border-top: 1px solid rgba(189, 206, 221, 0.568);
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
 }
-.parrafo{
-    font-size: 20px;
+footer p{
+    color: rgba(83, 83, 83, 0.6);
 }

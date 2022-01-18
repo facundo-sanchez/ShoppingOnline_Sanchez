@@ -1,7 +1,4 @@
-header{
-    background-color: #fff159; 
-    padding: .5em;
-}
+
 
 /*Conteiner Header FIRST*/
 .conteiner__header__first{
@@ -26,6 +23,10 @@ header{
    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 20%);
    
 }
+
+.search input:focus{
+    outline: none;
+}
 .button__search{
     width: 4em;
     height: 2.5em;
@@ -33,6 +34,7 @@ header{
     border: none;
     box-shadow: 0 1px 2px 0 rgb(0 0 0 / 20%);
 }
+
 .user__account{
     flex: 1 1 auto;
     align-self: center;
@@ -46,9 +48,10 @@ header{
 }
 .user__account ul li{
     padding: .5em 1em;
+    
 }
 
-.user__account:hover,.title__header{
+.user__account:hover,.title__header:hover,.button__search:hover{
     cursor: pointer;
 }
 
@@ -61,16 +64,19 @@ header{
     align-self: center;
 }
 
-.item__2{
+.user__item{
     flex: 1 1 auto;
     align-self: center;
-    text-align: end;
-    margin: 1em;
 }
 
+
+.icon{
+    padding-right: .5em;
+}
 .nav__menu{
     flex: 1 1 auto;
     align-self: center;
+   
 }
 
 .nav__menu ul{
@@ -82,10 +88,53 @@ header{
 .nav__menu ul li{
     padding: .5em .5em .5em .5em;
     width: 5em;
-    text-align: center;
+    margin: 0.7em;
 }
-.nav__menu ul li:hover{
+
+.nav__menu ul li a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav__menu ul li:hover,.nav__user li a:hover{
     cursor: pointer;
-    background-color: rgba(252, 252, 252, .9)
+}
+
+/*NAVBAR USER*/
+.nav__user{
+    display: flex;
+    list-style: none;
+}
+.nav__user li{
+    padding: 0em .6em;
+}
+
+.nav__user li a{
+    background-color: #fff159;
+    color: #fff;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0);
+    border-radius: 50%;
+    padding: .3em .4em .3em .4em; 
+}
+.icon_user{
+    color: black;
+}
+.user__favorites,.user__shopping{
+    background-color: rgb(250, 45, 45);
+    margin: 0.2em;
+    padding: 0em .5em 0em 0.5em; 
+    border-radius: 50%;
+    font-size: .8em;
+    font-weight: bold;
+    position: absolute;
+    top: 4em;
+}
+.user__favorites{
+    right:2;
+}
+
+.user__shopping{
+    right:2;
 }
 

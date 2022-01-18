@@ -2,6 +2,16 @@
 margin: 0;
 padding: 0;
 }
-body{
+body,footer{
   background-color: rgb(209, 232, 253);
+}
+
+header{
+  background-color: #fff159; 
+  padding: .5em;
+}
+
+a{
+  text-decoration: none;
+  color: black;
 }
