@@ -36,7 +36,15 @@ export default function header() {
                 <nav className={Styles.nav__menu}>
                     <ul>
                         <li><a href="home"><FontAwesomeIcon icon={faHome} className={Styles.icon}/>Home</a></li>
-                        <li><a href="categories"><FontAwesomeIcon icon={faList} className={Styles.icon}/>Categories</a></li>
+                        <li><a href="categories"><FontAwesomeIcon icon={faList} className={Styles.icon}/>Categories</a>
+                            <ul>
+                            {/* esto cambiarlo con el UseState para hacerlo con javascript */}
+                                <li><a href=''>Electronics</a></li>
+                                <li><a href=''>Computers</a></li>
+                                <li><a href=''>Men's Fashion</a></li>
+                                <li><a href=''>Women's Fashion</a></li>
+                            </ul>
+                        </li>
                         <li><a href="offers"><FontAwesomeIcon icon={faTags} className={Styles.icon}/>Offers</a></li>
                         <li><a href="contact"><FontAwesomeIcon icon={faIdBadge} className={Styles.icon}/>Contact</a> </li>
                         <li><a href="help"><FontAwesomeIcon icon={faQuestionCircle} className={Styles.icon}/>Help</a></li>

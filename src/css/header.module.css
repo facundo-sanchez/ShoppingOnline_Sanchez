@@ -97,7 +97,22 @@
     align-items: center;
 }
 
+.nav__menu ul li ul{
+    position: absolute;
+    background-color: #fff159;
+    flex-direction: column;
+    opacity: 0;
+    top: 50;
+    transition: opacity .5s;   
+}
+.nav__menu ul li ul li{
+    border-bottom: 1px solid black;
+}
+.nav__menu ul li:hover >ul{
+    opacity: 1;
+}
 .nav__menu ul li:hover,.nav__user li a:hover{
+
     cursor: pointer;
 }
 
