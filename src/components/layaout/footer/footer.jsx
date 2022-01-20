@@ -1,5 +1,4 @@
-import React from 'react'
-import Styles from '../css/footer.module.css'
+import Styles from '../../styles/footer.module.css'
 export default function footer() {
     return (
         <footer>
@@ -9,7 +8,6 @@ export default function footer() {
             <div className={Styles.title__footer}>
                 <p>Full Stack Developer</p>
             </div>
-
         </footer>
     )
 }

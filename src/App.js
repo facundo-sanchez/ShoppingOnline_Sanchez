@@ -1,16 +1,19 @@
-import './App.css';
-import Header from './components/header';
-import Footer from './components/footer';
-import Main from './components/main';
+import './components/styles/App.css';
+import Header from './components/layaout/header/header';
+import Footer from './components/layaout/footer/footer';
+import ItemList from './components/ItemList/itemList';
+import Main from './components/view/home';
+import { Fragment } from 'react';
 
 export default function App() {
 
   return (
-    
-    <div className="App">
-        <Header/>
-        <Main/>
-        <Footer/>
-    </div>
+    <Fragment>
+      <Header/>
+      <ItemList/>
+      <Main/>
+   
+      <Footer/>
+    </Fragment>
   );
 }

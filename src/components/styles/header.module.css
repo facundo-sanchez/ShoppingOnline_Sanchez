@@ -102,13 +102,15 @@
     background-color: #fff159;
     flex-direction: column;
     opacity: 0;
-    top: 50;
-    transition: opacity .5s;   
+    top: -20em;
+    transition: opacity .5s;
+    transition: top .5s;
 }
 .nav__menu ul li ul li{
     border-bottom: 1px solid black;
 }
 .nav__menu ul li:hover >ul{
+    top: 5.5em;
     opacity: 1;
 }
 .nav__menu ul li:hover,.nav__user li a:hover{
