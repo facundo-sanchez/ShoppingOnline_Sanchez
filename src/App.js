@@ -5,14 +5,14 @@ import ItemList from './components/ItemList/itemList';
 import Main from './components/view/home';
 import { Fragment } from 'react';
 
+
 export default function App() {
 
   return (
     <Fragment>
       <Header/>
       <ItemList/>
-      <Main/>
-   
+      {/* <Main/> */}
       <Footer/>
     </Fragment>
   );
