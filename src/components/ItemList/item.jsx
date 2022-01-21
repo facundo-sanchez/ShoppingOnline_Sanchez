@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 
 
-export default function item({id,price,produc,description,setItems}) {
+export default function Item({id,price,produc,description,setItems}) {
   const selectItems =()=>{
     setItems({id,price,produc,description})
     console.log({id,price,produc,description})

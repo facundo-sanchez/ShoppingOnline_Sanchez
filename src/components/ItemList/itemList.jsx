@@ -1,4 +1,4 @@
-import Item from './item.jsx';
+import Item from './Item.jsx';
 import Styles from '../styles/itemList.module.css';
 import { Fragment, useState } from "react";
 
