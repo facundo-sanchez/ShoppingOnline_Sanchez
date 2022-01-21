@@ -1,6 +1,6 @@
 
 
-export default function main() {
+export default function Main() {
     return (
         <article>
             <div>PORTADA</div>

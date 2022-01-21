@@ -18,7 +18,7 @@
 }
 .search input{   
    padding: .7em;
-   width: 65vh;
+   width: 65%;
    border: none;
    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 20%);
    
@@ -91,7 +91,7 @@
     margin: 0.7em;
 }
 
-.nav__menu ul li a{
+.navbar__item{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -101,20 +101,16 @@
     position: absolute;
     background-color: #fff159;
     flex-direction: column;
-    opacity: 0;
-    top: -20em;
+    opacity: 1;
+    top: 0em;
     transition: opacity .5s;
     transition: top .5s;
 }
 .nav__menu ul li ul li{
     border-bottom: 1px solid black;
 }
-.nav__menu ul li:hover >ul{
-    top: 5.5em;
-    opacity: 1;
-}
-.nav__menu ul li:hover,.nav__user li a:hover{
 
+.nav__menu ul li:hover,.nav__user li a:hover{
     cursor: pointer;
 }
 
@@ -154,4 +150,64 @@
 .user__shopping{
     right:2;
 }
+
+/*NAVBAR CATEGORIES*/
+.navbar__categories_background{
+    position: fixed;
+    top: 0;
+    left: 0;
+
+}
+
+.navbar__categories_background,.navbar__categories{
+    height: 100%;
+    z-index: 2; 
+}
+
+.navbar__categories_background{
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.521);
+    transition: opacity .5s;
+}
+
+.navbar__categories{
+    background-color: #fff159;
+    position: fixed;
+    width: 20%;
+}
+.title__navbar__categories{
+   text-align: center;
+
+}
+.navbar__categories ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10%;
+    
+}
+.navbar__categories ul li{
+    font-weight: bold;
+    padding: 5% 5% 5% 5%;
+    width: 90%;
+    text-align: center;
+    border-bottom: 1px solid;
+}
+.button__categories{
+    display: flex;
+    justify-content: flex-end;
+}
+.button__categories button{
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    padding: 5% 5%;
+    font-size: 25px;
+}
+.navbar__categories ul li:hover{
+    background-color: #eaeded;
+    cursor: pointer;
+}
+
 

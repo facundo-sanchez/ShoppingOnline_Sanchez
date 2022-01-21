@@ -1,8 +1,8 @@
 import './components/styles/App.css';
-import Header from './components/layaout/header/header';
-import Footer from './components/layaout/footer/footer';
-import ItemList from './components/ItemList/itemList';
-import Main from './components/view/home';
+import Header from './components/layaout/header/Header';
+import Footer from './components/layaout/footer/Footer';
+import ItemList from './components/ItemList/ItemList';
+import Main from './components/view/Home';
 import { Fragment } from 'react';
 
 
