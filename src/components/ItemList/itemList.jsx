@@ -1,8 +1,8 @@
 import Item from './Item.jsx';
 import Styles from '../styles/itemList.module.css';
-import { Fragment, useState } from "react";
+import { Fragment} from "react";
 
-export default function ItemList() {
+export default function ItemList({favorites,setFavorites,buys,setBuys}) {
     const item = [
         {id:1,price:130,produc:'item 2',description:'descripcion 2'},
         {id:2,price:260,produc:'item 3',description:'descripcion 3'},
@@ -21,17 +21,10 @@ export default function ItemList() {
         {id:15,price:4350,produc:'item 15',description:'descripcion 15'},
         {id:16,price:5450,produc:'item 16',description:'descripcion 16'}]
 
-    const [items,setItems] = useState(null);
-
     return (
         <Fragment>
-            <div>
-                <h3>Producto seleccionado</h3>
-                <p>{items ? items.price : 'No product'}</p>
-                <p>{items ? items.description : 'No product'}</p>
-            </div>
             <div className={Styles.conteiner__produc}>
-                {item.map((it)=>(<Item key={it.id} {...it} setItems={setItems}/>))}
+                {item.map((it)=>(<Item key={it.id} {...it} favorites={favorites} setFavorites={setFavorites} buys={buys} setBuys={setBuys}/>))}
             </div>
         </Fragment>
     )

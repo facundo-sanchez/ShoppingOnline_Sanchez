@@ -1,14 +1,12 @@
 import { Fragment } from "react";
 
 
-export default function Item({id,price,produc,description,setItems}) {
-  const selectItems =()=>{
-    setItems({id,price,produc,description})
-    console.log({id,price,produc,description})
-  };
+export default function Item({id,price,produc,description,favorites,setFavorites,buys,setBuys}) {
 
-
-
+  const countFavorites = ()=>setFavorites(favorites+1);
+  
+  const countShopping = ()=>setBuys(buys+1);
+  
   return (        
     <Fragment>
       <article>
@@ -16,12 +14,10 @@ export default function Item({id,price,produc,description,setItems}) {
         <h3>${price}</h3>
         <p>Produc:{produc}</p>
         <p>Description:{description}</p>
-        <button>Buy</button>
-        <button onClick={selectItems}>Favorites</button>
+        <button onClick={countFavorites}>Favorites</button>
+        <button onClick={countShopping}>Buy</button>
       </article>
     </Fragment>
-
-
     );
 
       
