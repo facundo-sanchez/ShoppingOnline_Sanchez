@@ -3,9 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch,faHome ,faList,faShoppingCart,faHeart,faTags,faIdBadge,faQuestionCircle,faTimesCircle} from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react';
 
-export default function ConteinerHeader({favorites,buys}) {
+export default function ConteinerHeader({countFavorites,countBuys}) {
     const [categoryMenu,setCategoryMenu] = useState(false);
-
+    
     return(            
         <header>
             <div className={Styles.conteiner__header__first}>
@@ -18,7 +18,10 @@ export default function ConteinerHeader({favorites,buys}) {
                     <p>#Aca va algo</p>
                 </div>
                 <NavbarMenu setCategoryMenu={setCategoryMenu}/>
-                <NavBarUser favorites = {favorites} buys={buys}/>
+                <NavBarUser 
+                    countFavorites = {countFavorites} 
+                    countBuys={countBuys}
+                />
                 {categoryMenu &&(
                     <NavBarCategories setCategoryMenu={setCategoryMenu}/>
                 )}
@@ -58,11 +61,12 @@ const UserAcount = ()=>{
 
 const NavbarMenu = ({setCategoryMenu})=>{
     const show_menu = ()=>setCategoryMenu(true);
+
     return (
         <nav className={Styles.nav__menu}>
             <ul>
                 <li><a href="home" className={Styles.navbar__item}><FontAwesomeIcon icon={faHome} className={Styles.icon}/>Home</a></li>
-                <li><span onClick={show_menu} className={Styles.navbar__item}><FontAwesomeIcon icon={faList} className={Styles.icon}/>Categories</span></li>
+                <li><span onClick={show_menu} className={Styles.navbar__item}><FontAwesomeIcon icon={faList} className={Styles.icon} />Categories</span></li>
                 <li><a href="offers" className={Styles.navbar__item}><FontAwesomeIcon icon={faTags} className={Styles.icon}/>Offers</a></li>
                 <li><a href="contact" className={Styles.navbar__item}><FontAwesomeIcon icon={faIdBadge} className={Styles.icon}/>Contact</a> </li>
                 <li><a href="help" className={Styles.navbar__item}><FontAwesomeIcon icon={faQuestionCircle} className={Styles.icon}/>Help</a></li>
@@ -71,12 +75,13 @@ const NavbarMenu = ({setCategoryMenu})=>{
     )
 }
 
-const NavBarUser = ({favorites,buys})=>{
+const NavBarUser = ({countFavorites,countBuys})=>{
     return (
         <div className={Styles.user__item}>
             <ul className={Styles.nav__user}>
-                <li><a href="shopping"><FontAwesomeIcon icon={faShoppingCart} className={Styles.icon_user}/><span className={Styles.user__shopping}>{buys ? buys : ''}</span></a></li>
-                <li><a href="favorites"><FontAwesomeIcon icon={faHeart} className={Styles.icon_user}/><span className={Styles.user__favorites}>{favorites ? favorites : '' }</span></a></li>
+                <li><a href="shopping"><FontAwesomeIcon icon={faShoppingCart} className={Styles.icon_user}/><span className={Styles.user__shopping}>{countBuys ? countBuys : ''}</span></a></li>
+                <li>
+                    <a href="favorites"><FontAwesomeIcon icon={faHeart} className={Styles.icon_user}/><span className={Styles.user__favorites}>{countFavorites ? countFavorites : '' }</span></a></li>
             </ul>
         </div>
     )

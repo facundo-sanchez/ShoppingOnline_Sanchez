@@ -161,19 +161,22 @@
 
 .navbar__categories_background,.navbar__categories{
     height: 100%;
-    z-index: 2; 
+    z-index: 1; 
+
 }
 
 .navbar__categories_background{
     width: 100%;
     background-color: rgba(0, 0, 0, 0.521);
-    transition: opacity .5s;
+ 
+
 }
 
 .navbar__categories{
     background-color: #fff159;
     position: fixed;
     width: 20%;
+    transition: opacity .5s;
 }
 .title__navbar__categories{
    text-align: center;
@@ -210,4 +213,39 @@
     cursor: pointer;
 }
 
-
+@media only screen and (max-width:900px){
+    
+    .nav__menu,.item__1,.title__header{
+        display: none;
+    }
+    .conteiner__header__first{
+        flex-direction: column;
+    }
+    .nav__user{
+        position: absolute;
+        top: 3%;
+        right: 0;
+    }
+    .user__item ul li:nth-child(2){
+        display: none;
+    }
+    .user__favorites,.user__shopping{
+        top: -60%;
+    }
+    .user__favorites{
+        right:0;
+        display: none;
+    }
+    
+    .user__shopping{
+        right:0;
+    }
+}
+@media only screen and (max-width:350px){
+    .search input{
+        width: 60%;
+    }
+    .button__search{
+        width:10%;
+    }
+}
