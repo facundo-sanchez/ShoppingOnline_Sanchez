@@ -1,21 +1,31 @@
 import { Fragment } from "react";
-
-
-export default function Item({id,price,produc,description,favorites,setFavorites,buys,setBuys}) {
-
-  const countFavorites = ()=>setFavorites(favorites+1);
-  
-  const countShopping = ()=>setBuys(buys+1);
+import Styles from '../styles/itemConteiner.module.css';
+import {AdditemBuy, AdditemFavorites,selectProduct} from '../hooks/UserItem';
+export default function Item({product,countFavorites,setCountFavorites,countBuys,setCountBuys,setSelectBuy}) {
+  const addFavorites = ()=>{
+    AdditemFavorites({countFavorites,setCountFavorites})
+  }
+  const addBuy = ()=> {
+    AdditemBuy({countBuys,setCountBuys});
+    selectProduct({...product},{setSelectBuy});
+  }
   
   return (        
     <Fragment>
       <article>
-        <img src="#" alt="#" />
-        <h3>${price}</h3>
-        <p>Produc:{produc}</p>
-        <p>Description:{description}</p>
-        <button onClick={countFavorites}>Favorites</button>
-        <button onClick={countShopping}>Buy</button>
+        <a href='#'>
+          <div className={Styles.item__img}>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Google_Translate_logo.svg/800px-Google_Translate_logo.svg.png" alt="#" />
+          </div>
+        </a>
+          <div className={Styles.item__information}>
+              <h3>${product.price}</h3>
+              <div className={Styles.item__buttons}>
+                <button onClick={addFavorites}>Favorites</button>
+                <button onClick={addBuy}>Buy</button>
+              </div>
+          </div>
+
       </article>
     </Fragment>
     );
