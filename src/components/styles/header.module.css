@@ -152,11 +152,16 @@
 }
 
 /*NAVBAR CATEGORIES*/
+.fade{
+    opacity: 0;
+    z-index: 1;
+    background-color: aquamarine;
+}
+
 .navbar__categories_background{
     position: fixed;
     top: 0;
     left: 0;
-
 }
 
 .navbar__categories_background,.navbar__categories{
@@ -176,7 +181,6 @@
     background-color: #fff159;
     position: fixed;
     width: 20%;
-    transition: opacity .5s;
 }
 .title__navbar__categories{
    text-align: center;
@@ -249,3 +253,4 @@
         width:10%;
     }
 }
+

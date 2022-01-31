@@ -10,6 +10,6 @@ export const getProduct = async ({setProducts,setLoadig}) => {
         }finally{
             setLoadig(false);
         }
-    },3000);
+    },0);
 
 }

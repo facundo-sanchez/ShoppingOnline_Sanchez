@@ -1,7 +1,6 @@
-import Item from './Item.jsx';
-import Styles from '../styles/itemConteiner.module.css';
 import { Fragment,useState,useEffect} from "react";
 import { getProduct } from '../hooks/Products.jsx';
+import ItemList from './ItemList.jsx';
 
 export default function ItemConteiner({countFavorites,setCountFavorites,countBuys,setCountBuys,selectBuy,setSelectBuy}) {
     const [products, setProducts] = useState([]);
@@ -15,16 +14,12 @@ export default function ItemConteiner({countFavorites,setCountFavorites,countBuy
     }
     return (
         <Fragment>
-            <div className={Styles.conteiner__produc}>
-                {products.map((product =>(
-                    <Item key={product.id} product = {product} 
-                    countFavorites={countFavorites} 
-                    setCountFavorites={setCountFavorites} 
-                    countBuys={countBuys}
-                    setCountBuys={setCountBuys} 
-                    setSelectBuy ={setSelectBuy}/>
-                )))}
-            </div>
+            <ItemList products={products} 
+            countFavorites={countFavorites} 
+            setCountFavorites={setCountFavorites} 
+            countBuys = {countBuys} 
+            setCountBuys = {setCountBuys} 
+            setSelectBuy = {setSelectBuy}/>
         </Fragment>
     )
 }

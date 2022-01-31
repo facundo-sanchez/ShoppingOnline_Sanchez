@@ -1,11 +1,13 @@
 import Styles from '../../styles/header.module.css'
+import '../../styles/CssTransition.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch,faHome ,faList,faShoppingCart,faHeart,faTags,faIdBadge,faQuestionCircle,faTimesCircle} from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react';
+import {CSSTransition} from 'react-transition-group';
 
 export default function ConteinerHeader({countFavorites,countBuys}) {
     const [categoryMenu,setCategoryMenu] = useState(false);
-    
+
     return(            
         <header>
             <div className={Styles.conteiner__header__first}>
@@ -22,9 +24,15 @@ export default function ConteinerHeader({countFavorites,countBuys}) {
                     countFavorites = {countFavorites} 
                     countBuys={countBuys}
                 />
-                {categoryMenu &&(
+            
+                <CSSTransition
+                    in = {categoryMenu}
+                    timeout={300}
+                    classNames={'navbar'}
+                    unmountOnExit>
                     <NavBarCategories setCategoryMenu={setCategoryMenu}/>
-                )}
+                </CSSTransition>
+
             </div>
         </header>
    

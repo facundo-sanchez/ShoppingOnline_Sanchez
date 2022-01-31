@@ -1,6 +1,7 @@
 import { Fragment } from "react";
-import Styles from '../styles/itemConteiner.module.css';
+import Styles from '../styles/itemList.module.css';
 import {AdditemBuy, AdditemFavorites,selectProduct} from '../hooks/UserItem';
+
 export default function Item({product,countFavorites,setCountFavorites,countBuys,setCountBuys,setSelectBuy}) {
   const addFavorites = ()=>{
     AdditemFavorites({countFavorites,setCountFavorites})
