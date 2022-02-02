@@ -2,7 +2,7 @@ import { Fragment,useState,useEffect} from "react";
 import { getProduct } from '../hooks/Products.jsx';
 import ItemList from './ItemList.jsx';
 
-export default function ItemConteiner({countFavorites,setCountFavorites,countBuys,setCountBuys,selectBuy,setSelectBuy}) {
+export default function ItemConteiner({countFavorites,setCountFavorites,countBuys,setCountBuys,setSelectItem}) {
     const [products, setProducts] = useState([]);
     const [loadig, setLoadig] = useState(true);
     useEffect(() => {
@@ -19,7 +19,7 @@ export default function ItemConteiner({countFavorites,setCountFavorites,countBuy
             setCountFavorites={setCountFavorites} 
             countBuys = {countBuys} 
             setCountBuys = {setCountBuys} 
-            setSelectBuy = {setSelectBuy}/>
+            setSelectItem = {setSelectItem}/>
         </Fragment>
     )
 }
