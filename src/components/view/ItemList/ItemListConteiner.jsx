@@ -1,6 +1,6 @@
 import { Fragment,useState} from "react";
 import { useParams } from "react-router-dom";
-import { useProducts } from '../hooks/useProducts.jsx';
+import { useProducts } from '../../hooks/useProducts.jsx';
 import ItemList from './ItemList.jsx';
 
 export default function ItemListConteiner({countFavorites,setCountFavorites,countBuys,setCountBuys}) {

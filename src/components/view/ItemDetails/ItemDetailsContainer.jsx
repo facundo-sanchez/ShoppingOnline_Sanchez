@@ -1,9 +1,9 @@
 import {Fragment } from 'react';
-import { useState,useEffect} from 'react/cjs/react.development';
+import { useState,useEffect} from 'react';
 
 import ItemDetails from './ItemDetails';
 
-import {useProducts} from '../hooks/useProducts';
+import {useProducts} from '../../hooks/useProducts';
 import { useParams } from 'react-router-dom';
 
 

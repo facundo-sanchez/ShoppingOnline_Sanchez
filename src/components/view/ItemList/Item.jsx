@@ -1,6 +1,6 @@
 import { Fragment } from "react";
-import Styles from '../styles/itemList.module.css';
-import {AdditemBuy, AdditemFavorites} from '../hooks/UserItem';
+import Styles from '../../styles/itemList.module.css';
+import {AdditemBuy, AdditemFavorites} from '../../hooks/userItem';
 import { Link } from "react-router-dom";
 
 export default function Item({product,countFavorites,setCountFavorites,countBuys,setCountBuys}) {

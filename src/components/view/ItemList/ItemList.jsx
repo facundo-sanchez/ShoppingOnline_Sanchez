@@ -1,5 +1,5 @@
 import Item from './Item'
-import Styles from '../styles/itemList.module.css';
+import Styles from '../../styles/itemList.module.css';
 
 export default function ItemList({products,countFavorites,setCountFavorites,countBuys,setCountBuys}) {
   return (            

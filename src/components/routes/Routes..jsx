@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter,Route,Routes as Switch} from 'react-router-dom';
-import ItemDetailsContainer from '../ItemList/ItemDetailsContainer';
-import ItemListConteiner from '../ItemList/ItemListConteiner';
+import ItemDetailsContainer from '../view/ItemDetails/ItemDetailsContainer';
+import ItemListConteiner from '../view/ItemList/ItemListConteiner';
 import Header from '../layout/header/Header';
 import { useState } from 'react';
 
