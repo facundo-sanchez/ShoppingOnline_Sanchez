@@ -1,3 +1,13 @@
+Item Details => Muestra la informacion de un item seleccionado
+Item List => Muestra la informacion de los items llamados desde la api, se vincula tambien conel llamado a una categoria
+Item buy => va mostrar la pagina de compras del usuario.
+Item favorites => va mostrar los items marcados como favoritos del usuario
+Home => va ser el inicio de la pagina, portada etc
+layout => footer and header
+data => products api
+hooks => useProducts para el llamado de productos, userItem para funciones de contadores buy and favorites
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
