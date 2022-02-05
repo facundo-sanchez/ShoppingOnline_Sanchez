@@ -3,9 +3,8 @@ import '../../styles/CssTransition.css'
 import Styles from '../../styles/itemBuy.module.css';
 import {addStockItem,subtractStockItem,itemBuy} from '../../hooks/userItem';
 import { useState} from 'react';
-import {AdditemBuy} from '../../hooks/userItem';
 
-//item buy
+
 export default function ItemDetails({selectedItem,countBuys,setCountBuys}) {
   const [stock, setStock] = useState(0);
 
