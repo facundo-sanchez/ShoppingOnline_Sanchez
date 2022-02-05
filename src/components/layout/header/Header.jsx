@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch,faHome ,faList,faShoppingCart,faHeart,faTags,faIdBadge,faQuestionCircle,faTimesCircle} from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react';
 import {CSSTransition} from 'react-transition-group';
+import { NavLink } from 'react-router-dom';
+
 
 export default function ConteinerHeader({countFavorites,countBuys}) {
     const [categoryMenu,setCategoryMenu] = useState(false);
@@ -24,14 +26,16 @@ export default function ConteinerHeader({countFavorites,countBuys}) {
                     countFavorites = {countFavorites} 
                     countBuys={countBuys}
                 />
-            
+                
                 <CSSTransition
                     in = {categoryMenu}
-                    timeout={300}
+                    timeout={1000}
                     classNames={'navbar'}
                     unmountOnExit>
                     <NavBarCategories setCategoryMenu={setCategoryMenu}/>
                 </CSSTransition>
+                
+                
 
             </div>
         </header>
@@ -72,13 +76,40 @@ const NavbarMenu = ({setCategoryMenu})=>{
 
     return (
         <nav className={Styles.nav__menu}>
+
             <ul>
-                <li><a href="home" className={Styles.navbar__item}><FontAwesomeIcon icon={faHome} className={Styles.icon}/>Home</a></li>
-                <li><span onClick={show_menu} className={Styles.navbar__item}><FontAwesomeIcon icon={faList} className={Styles.icon} />Categories</span></li>
-                <li><a href="offers" className={Styles.navbar__item}><FontAwesomeIcon icon={faTags} className={Styles.icon}/>Offers</a></li>
-                <li><a href="contact" className={Styles.navbar__item}><FontAwesomeIcon icon={faIdBadge} className={Styles.icon}/>Contact</a> </li>
-                <li><a href="help" className={Styles.navbar__item}><FontAwesomeIcon icon={faQuestionCircle} className={Styles.icon}/>Help</a></li>
+                <li className={Styles.navbar__item}>
+                    <NavLink to="/">
+                        <FontAwesomeIcon icon={faHome} className={Styles.icon}/>
+                            Home
+                    </NavLink>
+                </li>
+                <li className={Styles.navbar__item}>
+                    <span onClick={show_menu}>
+                        <FontAwesomeIcon icon={faList} className={Styles.icon}/>
+                            Categories
+                    </span>
+                </li>
+                <li className={Styles.navbar__item}>
+                    <NavLink to="/offers">
+                        <FontAwesomeIcon icon={faTags} className={Styles.icon}/>
+                        Offers
+                    </NavLink> 
+                </li>
+                <li  className={Styles.navbar__item}>
+                    <NavLink to="/contact">
+                        <FontAwesomeIcon icon={faIdBadge} className={Styles.icon}/>
+                        Contact
+                    </NavLink>
+                </li>
+                <li className={Styles.navbar__item}>
+                    <NavLink to="/help">
+                        <FontAwesomeIcon icon={faQuestionCircle} className={Styles.icon}/>
+                        Help
+                    </NavLink>
+                </li>
             </ul>
+           
         </nav>
     )
 }
@@ -87,9 +118,22 @@ const NavBarUser = ({countFavorites,countBuys})=>{
     return (
         <div className={Styles.user__item}>
             <ul className={Styles.nav__user}>
-                <li><a href="shopping"><FontAwesomeIcon icon={faShoppingCart} className={Styles.icon_user}/><span className={Styles.user__shopping}>{countBuys ? countBuys : ''}</span></a></li>
                 <li>
-                    <a href="favorites"><FontAwesomeIcon icon={faHeart} className={Styles.icon_user}/><span className={Styles.user__favorites}>{countFavorites ? countFavorites : '' }</span></a></li>
+                    <NavLink to="/shopping">
+                        <FontAwesomeIcon icon={faShoppingCart} className={Styles.icon_user}/>
+                        <span className={Styles.user__shopping}>
+                            {countBuys ? countBuys : ''}
+                        </span>
+                    </NavLink>
+                </li>
+                <li>
+                <NavLink to="/favorites">
+                <FontAwesomeIcon icon={faHeart} className={Styles.icon_user}/>
+                    <span className={Styles.user__favorites}>
+                        {countFavorites ? countFavorites : '' }
+                    </span>
+                </NavLink>
+                </li>
             </ul>
         </div>
     )
@@ -109,10 +153,18 @@ const NavBarCategories = ({setCategoryMenu})=>{
                     <h2>Categories</h2>
                 </div>
                 <ul>
-                    <li><a href='a'>Electronics</a></li>
-                    <li><a href='a'>Computers</a></li>
-                    <li><a href='a'>Men's Fashion</a></li>
-                    <li><a href='a'>Women's Fashion</a></li>
+                    <li>
+                        <NavLink to="/computers">Computers</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/phones">Cell Phones</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/tablets">Tablets</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/tvs">Tvs</NavLink>
+                    </li>
                 </ul>
             </div>
         </div>

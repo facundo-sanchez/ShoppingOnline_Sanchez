@@ -1,7 +1,7 @@
 import Item from './Item'
 import Styles from '../styles/itemList.module.css';
 
-export default function ItemList({products,countFavorites,setCountFavorites,countBuys,setCountBuys,setSelectItem}) {
+export default function ItemList({products,countFavorites,setCountFavorites,countBuys,setCountBuys}) {
   return (            
   <div className={Styles.conteiner__produc}>
     {products.map((product =>(
@@ -10,7 +10,7 @@ export default function ItemList({products,countFavorites,setCountFavorites,coun
         setCountFavorites={setCountFavorites} 
         countBuys={countBuys}
         setCountBuys={setCountBuys} 
-        setSelectItem ={setSelectItem}/>
+       />
     )))}
     </div>);
 }

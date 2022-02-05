@@ -87,8 +87,8 @@
 
 .nav__menu ul li{
     padding: .5em .5em .5em .5em;
-    width: 5em;
-    margin: 0.7em;
+
+    margin: 0.5em;
 }
 
 .navbar__item{
@@ -141,14 +141,14 @@
     font-size: .8em;
     font-weight: bold;
     position: absolute;
-    top: 4em;
+    top: 3.5em;
 }
 .user__favorites{
-    right:2;
+    right:1;
 }
 
 .user__shopping{
-    right:2;
+    right:1;
 }
 
 /*NAVBAR CATEGORIES*/

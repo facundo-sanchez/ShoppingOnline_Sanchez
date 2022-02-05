@@ -3,32 +3,31 @@ import '../styles/CssTransition.css'
 import Styles from '../styles/itemBuy.module.css';
 import {addStockItem,subtractStockItem,itemBuy} from '../hooks/UserItem';
 import { useState,useEffect } from 'react/cjs/react.development';
-
+import {AdditemBuy} from '../hooks/UserItem';
 //item buy
-export default function ItemDetails({item}) {
+export default function ItemDetails({selectedItem,countBuys,setCountBuys}) {
   const [stock, setStock] = useState(0);
 
-  useEffect(() => {
-    item ? setStock(1) : setStock(0);
-  }, [item]);
+  const addDetails = ()=> {
+    AdditemBuy({countBuys,setCountBuys});
+    //selectProduct({...product},{setSelectItem});
+  }
 
   return (
     <Fragment>
   
       <article className={Styles.itemCount__conteiner}>
-        <ItemShopping item = {item}/> 
-        <CountItem 
-          item = {item} 
-          stock = {stock} 
-          setStock = {setStock}
-        />
+        <ItemShopping selectedItem = {selectedItem}/>
+        <CountItem selectedItem={selectedItem} stock = {stock} setStock = {setStock}/>
+
       </article>
 
     </Fragment>
    )
 }
 
-const ItemShopping = ({item})=>{
+const ItemShopping = ({selectedItem})=>{
+
   return (
 
       <div className={Styles.item__for__buy}>
@@ -36,24 +35,24 @@ const ItemShopping = ({item})=>{
             <div className={Styles.item__img}>
               <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Google_Translate_logo.svg/800px-Google_Translate_logo.svg.png" alt="#" />
             </div>
-            <div className={Styles.item__information}>
-                <h3>${item.price}</h3>
-                <p>Produc:{item.produc}</p>
-                <p>Description:{item.description}</p>
-                <p>stock:{item.stock}</p>
+            <div className={Styles.selectedItem}>
+                <h3>${selectedItem.price}</h3>
+                <p>Produc:{selectedItem.produc}</p>
+                <p>Description:{selectedItem.description}</p>
+                <p>stock:{selectedItem.stock}</p>
             </div>
       </div>
 
   )
 }
 
-const CountItem = ({item,stock,setStock})=>{
+const CountItem = ({selectedItem,stock,setStock})=>{
 
-  const addStock = ()=>addStockItem({item,stock,setStock});
+  const addStock = ()=>addStockItem({selectedItem,stock,setStock});
 
   const subtractStock = ()=>subtractStockItem({stock,setStock});
 
-  const buyItem = ()=> itemBuy({item,stock});
+  const addDetails = ()=> itemBuy({selectedItem,stock});
 
   return (
     <div className={Styles.item__count}>
@@ -66,7 +65,7 @@ const CountItem = ({item,stock,setStock})=>{
             <button onClick={addStock}>+</button>
           </div>
           <div className={Styles.icon__buy}>
-            <button onClick={buyItem}>Buy</button>
+            <button onClick={addDetails}>Buy</button>
           </div>
     </div>
   );

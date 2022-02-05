@@ -7,8 +7,8 @@ export const AdditemBuy = ({countBuys,setCountBuys})=>setCountBuys(countBuys+1);
 export const AdditemFavorites = ({countFavorites, setCountFavorites})=>setCountFavorites(countFavorites+1)
 
 //agregar stock
-export const addStockItem = ({item,stock,setStock})=>{
-    if(item.stock > stock){
+export const addStockItem = ({selectedItem,stock,setStock})=>{
+    if(selectedItem.stock > stock){
         setStock(stock+1);
      }
 }
@@ -26,13 +26,13 @@ export const selectProduct = ({id,price,produc,description,stock},{setSelectItem
 
 //comprar producto
 
-export const itemBuy = ({item,stock})=>{
+export const itemBuy = ({selectedItem,stock})=>{
     if(stock >0){
         const itembuy = {
-          id:item.id,
-          price:item.price,
-          produc:item.produc,
-          description:item.description,
+          id:selectedItem.id,
+          price:selectedItem.price,
+          produc:selectedItem.produc,
+          description:selectedItem.description,
           stock,
         }
         console.log(itembuy);
