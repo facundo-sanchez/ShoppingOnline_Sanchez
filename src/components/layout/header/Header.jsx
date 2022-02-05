@@ -29,7 +29,7 @@ export default function ConteinerHeader({countFavorites,countBuys}) {
                 
                 <CSSTransition
                     in = {categoryMenu}
-                    timeout={1000}
+                    timeout={500}
                     classNames={'navbar'}
                     unmountOnExit>
                     <NavBarCategories setCategoryMenu={setCategoryMenu}/>
@@ -79,7 +79,7 @@ const NavbarMenu = ({setCategoryMenu})=>{
 
             <ul>
                 <li className={Styles.navbar__item}>
-                    <NavLink to="/">
+                    <NavLink to="/home">
                         <FontAwesomeIcon icon={faHome} className={Styles.icon}/>
                             Home
                     </NavLink>
@@ -154,16 +154,16 @@ const NavBarCategories = ({setCategoryMenu})=>{
                 </div>
                 <ul>
                     <li>
-                        <NavLink to="/computers">Computers</NavLink>
+                        <NavLink onClick={hidden_menu} to="category/computers">Computers</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/phones">Cell Phones</NavLink>
+                        <NavLink onClick={hidden_menu} to="category/cell-phones">Cell Phones</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/tablets">Tablets</NavLink>
+                        <NavLink onClick={hidden_menu} to="category/tablets">Tablets</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/tvs">Tvs</NavLink>
+                        <NavLink onClick={hidden_menu} to="category/tvs">Tvs</NavLink>
                     </li>
                 </ul>
             </div>

@@ -2,7 +2,7 @@ import { useState,useEffect} from "react";
 import { productsAPI } from '../helper/promises';
 
 
-export const useProducts = () => {
+export const useProducts = ({setLoadig}) => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -16,7 +16,7 @@ export const useProducts = () => {
       } catch (error) {
         console.log({ error });
       } finally {
-        //
+        setLoadig(false);
       }
     };
   

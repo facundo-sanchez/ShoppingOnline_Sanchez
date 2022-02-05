@@ -30,20 +30,40 @@ export default function Routes() {
                     setCountBuys={setCountBuys}
                     />
                 }/>
+                <Route path='/home' element = {
+                    <ItemListConteiner        
+                    countFavorites = {countFavorites}
+                    setCountFavorites={setCountFavorites} 
+                    countBuys={countBuys} 
+                    setCountBuys={setCountBuys}
+                    />
+                }/>
+                    {/* Navbar*/}
+
                 <Route path='/offers' element = {<p></p>}/>
                 <Route path='/contact' element = {<p></p>}/>
                 <Route path='/help' element = {<p></p>}/>
+
                     {/* Categories */}
-                <Route path='/computers' element = {<p></p>}/>
-                <Route path='/cell-phones' element = {<p></p>}/>
-                <Route path='/tablets' element = {<p></p>}/>
-                <Route path='/tvs' element = {<p></p>}/>
-                <Route path='/favorites' element = {<p></p>}/>
-                <Route path='/shopping' element = {<p></p>}/>
-                <Route path='item/:id' element={
+
+                <Route path='/category/:id' element = {                    
+                    <ItemListConteiner        
+                        countFavorites = {countFavorites}
+                        setCountFavorites={setCountFavorites} 
+                        countBuys={countBuys} 
+                        setCountBuys={setCountBuys}
+                    />}
+                />
+                    {/* Item id */}
+
+                <Route path='/item/:id' element={
                     <ItemDetailsContainer/>}
                 /> 
+                
+                    {/* Navbar users */}
 
+                <Route path='/favorites' element = {<p></p>}/>
+                <Route path='/shopping' element = {<p></p>}/>
 
             </Switch>
         </BrowserRouter>

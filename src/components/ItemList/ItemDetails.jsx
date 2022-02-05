@@ -38,6 +38,7 @@ const ItemShopping = ({selectedItem})=>{
             <div className={Styles.selectedItem}>
                 <h3>${selectedItem.price}</h3>
                 <p>Produc:{selectedItem.produc}</p>
+                <p>Category:{selectedItem.category}</p>
                 <p>Description:{selectedItem.description}</p>
                 <p>stock:{selectedItem.stock}</p>
             </div>
