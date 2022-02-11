@@ -1,6 +1,3 @@
-import React from 'react';
-import { Fragment ,useState,useEffect} from 'react';
-
 
 //contadores de favoritos y compras
 export const AdditemBuy = ({countBuys,setCountBuys})=>setCountBuys(countBuys+1);
@@ -14,7 +11,7 @@ export const addStockItem = ({selectedItem,stock,setStock})=>{
 }
 //eliminar stock
 export const subtractStockItem = ({stock,setStock})=>{
-    if(stock >0){
+    if(stock >1){
         setStock(stock-1);
       }
 }
