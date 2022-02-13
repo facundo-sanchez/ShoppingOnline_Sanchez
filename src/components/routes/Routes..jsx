@@ -4,6 +4,7 @@ import ItemDetailsContainer from '../view/ItemDetails/ItemDetailsContainer';
 import ItemListConteiner from '../view/ItemList/ItemListConteiner';
 import Header from '../layout/header/Header';
 import { useState } from 'react';
+import ShoppingContainer from '../view/shopping/ShoppingContainer';
 
 
 export default function Routes() {
@@ -63,7 +64,7 @@ export default function Routes() {
                     {/* Navbar users */}
 
                 <Route path='/favorites' element = {<p></p>}/>
-                <Route path='/shopping' element = {<p></p>}/>
+                <Route path='/shopping' element = {<ShoppingContainer/>}/>
 
             </Switch>
         </BrowserRouter>

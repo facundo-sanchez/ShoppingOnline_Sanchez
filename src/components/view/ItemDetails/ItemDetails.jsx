@@ -1,22 +1,32 @@
-import React, { Fragment } from 'react';
+import React, { Fragment ,useContext} from 'react';
 import '../../styles/CssTransition.css'
 import Styles from '../../styles/itemBuy.module.css';
 import {addStockItem,subtractStockItem,itemBuy} from '../../hooks/userItem';
 import { useState} from 'react';
 import { Link } from "react-router-dom";
 import {CSSTransition} from 'react-transition-group';
+import { CartContext } from '../../context/CartContext';
+
 
 
 export default function ItemDetails({selectedItem}) {
   const [stock, setStock] = useState(1);
   const [productSelect, setProductSelect] = useState(false);
 
+  const {addItem} = useContext(CartContext);
+
   return (
     <Fragment>
   
       <article className={Styles.itemCount__conteiner}>
         <ItemShopping selectedItem = {selectedItem}/>
-        <CountItem selectedItem={selectedItem} stock = {stock} setStock = {setStock} productSelect = {productSelect} setProductSelect ={setProductSelect}/>
+        <CountItem 
+          selectedItem={selectedItem}  
+          stock = {stock} 
+          setStock = {setStock} 
+          productSelect = {productSelect} 
+          setProductSelect ={setProductSelect}
+          addItem={addItem}/>
 
       </article>
 
@@ -45,7 +55,7 @@ const ItemShopping = ({selectedItem})=>{
   )
 }
 
-const CountItem = ({selectedItem,stock,setStock,productSelect,setProductSelect})=>{
+const CountItem = ({selectedItem,stock,setStock,productSelect,setProductSelect,addItem})=>{
 
   const addStock = (e)=>{
     e.preventDefault();
@@ -59,8 +69,21 @@ const CountItem = ({selectedItem,stock,setStock,productSelect,setProductSelect})
     setProductSelect(true)
   };
 
-  const addDetails = ()=>itemBuy({selectedItem,stock})
-  ;
+  const addDetails = ()=>{
+    addItem({
+      item:{
+        id:selectedItem.id,
+        category:selectedItem.category,
+        product:selectedItem.produc,
+        description:selectedItem.description,
+        price:selectedItem.price,
+        selected:stock,
+        total:selectedItem.price*stock
+      }
+    })
+
+    //itemBuy({selectedItem,stock})
+  };
 
   return (
     <div className={Styles.item__count}>
@@ -90,7 +113,7 @@ const CountItem = ({selectedItem,stock,setStock,productSelect,setProductSelect})
        > 
         <Fragment>
           <div className={Styles.icon__buy}>
-          <div className={Styles.selectedItem}>
+            <div className={Styles.selectedItem}>
               <h2>Purchase details</h2>
               <p>Price: {selectedItem.price} </p>
               <p>Selected:{stock}</p>
