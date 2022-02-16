@@ -3,41 +3,24 @@ import { BrowserRouter,Route,Routes as Switch} from 'react-router-dom';
 import ItemDetailsContainer from '../view/ItemDetails/ItemDetailsContainer';
 import ItemListConteiner from '../view/ItemList/ItemListConteiner';
 import Header from '../layout/header/Header';
-import { useState } from 'react';
+import Footer from '../layout/footer/Footer';
 import ShoppingContainer from '../view/shopping/ShoppingContainer';
+import ItemFavorites from '../view/ItemFavorites/ItemFavorites';
 
 
 export default function Routes() {
 
-    
-    const [countBuys,setCountBuys] = useState(0);
-    const [countFavorites, setCountFavorites] = useState(0);
-    //const [selectFavorites, setSelectFavorites] = useState(null);
-
- 
   return (
 
         <BrowserRouter>
-            <Header 
-                countFavorites={countFavorites} 
-                countBuys={countBuys}/>
+            <Header/>
             <Switch>
 
                 <Route path='/' element = {
-                    <ItemListConteiner        
-                    countFavorites = {countFavorites}
-                    setCountFavorites={setCountFavorites} 
-                    countBuys={countBuys} 
-                    setCountBuys={setCountBuys}
-                    />
+                    <ItemListConteiner/>
                 }/>
                 <Route path='/home' element = {
-                    <ItemListConteiner        
-                    countFavorites = {countFavorites}
-                    setCountFavorites={setCountFavorites} 
-                    countBuys={countBuys} 
-                    setCountBuys={setCountBuys}
-                    />
+                    <ItemListConteiner/>
                 }/>
                     {/* Navbar*/}
 
@@ -48,12 +31,7 @@ export default function Routes() {
                     {/* Categories */}
 
                 <Route path='/category/:id' element = {                    
-                    <ItemListConteiner        
-                        countFavorites = {countFavorites}
-                        setCountFavorites={setCountFavorites} 
-                        countBuys={countBuys} 
-                        setCountBuys={setCountBuys}
-                    />}
+                    <ItemListConteiner/>}
                 />
                     {/* Item id */}
 
@@ -63,10 +41,12 @@ export default function Routes() {
                 
                     {/* Navbar users */}
 
-                <Route path='/favorites' element = {<p></p>}/>
-                <Route path='/shopping' element = {<ShoppingContainer/>}/>
+                <Route path='/favorites' element = {<ItemFavorites/>}/>
+                <Route path='/cart' element = {<ShoppingContainer/>}/>
 
+                <Route path='*' element={<h2>Not found</h2>}/>
             </Switch>
+            <Footer/>
         </BrowserRouter>
 
   );

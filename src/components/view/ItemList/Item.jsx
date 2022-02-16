@@ -1,14 +1,21 @@
-import { Fragment } from "react";
+import { Fragment ,useContext} from "react";
 import Styles from '../../styles/itemList.module.css';
-import {AdditemBuy, AdditemFavorites} from '../../hooks/userItem';
 import { Link } from "react-router-dom";
+import { CartContext } from "../../context/CartContext";
 
-export default function Item({product,countFavorites,setCountFavorites,countBuys,setCountBuys}) {
-  const addFavorites = ()=>{
-    AdditemFavorites({countFavorites,setCountFavorites})
-  }
-  const addShopping = ()=>{
-    AdditemBuy({countBuys,setCountBuys});
+export default function Item({product}) {
+
+  const {addFavorites} = useContext(CartContext)
+
+  const addItemFavorites = ()=>{
+    addFavorites({
+      item:{
+      id:product.id,
+      category:product.category,
+      product:product.produc,
+      description:product.description,
+      price:product.price,
+    }});
   }
   
   return (        
@@ -25,8 +32,7 @@ export default function Item({product,countFavorites,setCountFavorites,countBuys
           </div>
         </Link>
         <div className={Styles.item__buttons}>
-          <button onClick={addFavorites}>Favorites</button>
-          <button onClick={addShopping}>Shop</button>
+          <button onClick={addItemFavorites}>Favorites</button>
         </div>
       </article>
     </Fragment>

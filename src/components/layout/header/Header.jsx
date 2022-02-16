@@ -2,13 +2,15 @@ import Styles from '../../styles/header.module.css'
 import '../../styles/CssTransition.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch,faHome ,faList,faShoppingCart,faHeart,faTags,faIdBadge,faQuestionCircle,faTimesCircle} from '@fortawesome/free-solid-svg-icons'
-import { useState } from 'react';
+import { useState,useContext } from 'react';
 import {CSSTransition} from 'react-transition-group';
 import { NavLink } from 'react-router-dom';
+import { CartContext } from '../../context/CartContext';
 
-
-export default function ConteinerHeader({countFavorites,countBuys}) {
+export default function ConteinerHeader() {
     const [categoryMenu,setCategoryMenu] = useState(false);
+
+    const {countBuys,countFavorites} = useContext(CartContext)
 
     return(            
         <header>
@@ -119,7 +121,7 @@ const NavBarUser = ({countFavorites,countBuys})=>{
         <div className={Styles.user__item}>
             <ul className={Styles.nav__user}>
                 <li>
-                    <NavLink to="/shopping">
+                    <NavLink to="/cart">
                         <FontAwesomeIcon icon={faShoppingCart} className={Styles.icon_user}/>
                         <span className={Styles.user__shopping}>
                             {countBuys ? countBuys : ''}
