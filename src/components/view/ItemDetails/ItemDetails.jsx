@@ -1,7 +1,7 @@
 import React, { Fragment ,useContext} from 'react';
 import '../../styles/CssTransition.css'
 import Styles from '../../styles/itemBuy.module.css';
-import {addStockItem,subtractStockItem,itemBuy} from '../../hooks/userItem';
+import {addStockItem,subtractStockItem} from '../../hooks/userItem';
 import { useState} from 'react';
 import { Link } from "react-router-dom";
 import {CSSTransition} from 'react-transition-group';

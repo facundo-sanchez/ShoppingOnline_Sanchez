@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useProducts } from '../../hooks/useProducts.jsx';
 import ItemList from './ItemList.jsx';
 
-export default function ItemListConteiner({countFavorites,setCountFavorites,countBuys,setCountBuys}) {
+export default function ItemListConteiner() {
 
     const [loadig, setLoadig] = useState(true);
     const {products} = useProducts({setLoadig});
@@ -20,20 +20,10 @@ export default function ItemListConteiner({countFavorites,setCountFavorites,coun
     return (
         <Fragment>
             {id &&(       
-                <ItemList products={filterCategory} 
-                    countFavorites={countFavorites} 
-                    setCountFavorites={setCountFavorites} 
-                    countBuys = {countBuys} 
-                    setCountBuys = {setCountBuys} 
-                />     
+                <ItemList products={filterCategory}/>     
             )}
             {!id &&(
-                <ItemList products={products} 
-                countFavorites={countFavorites} 
-                setCountFavorites={setCountFavorites} 
-                countBuys = {countBuys} 
-                setCountBuys = {setCountBuys} 
-                />
+                <ItemList products={products}/>
             )}
 
         </Fragment>
