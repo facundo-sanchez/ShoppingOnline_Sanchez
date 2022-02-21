@@ -21,7 +21,7 @@
     padding: 10px;
 }
 .item__img img{
-    width: 200px;
+    height: 250px;
 }
 .item__information{
     flex: 1 1 auto;

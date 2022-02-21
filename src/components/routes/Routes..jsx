@@ -15,8 +15,9 @@ export default function Routes() {
         <BrowserRouter>
             <Header/>
             <Switch>
-
+            
                 <Route path='/' element = {
+              
                     <ItemListConteiner/>
                 }/>
                 <Route path='/home' element = {
@@ -30,7 +31,7 @@ export default function Routes() {
 
                     {/* Categories */}
 
-                <Route path='/category/:id' element = {                    
+                <Route path='/category/:category' element = {                    
                     <ItemListConteiner/>}
                 />
                     {/* Item id */}

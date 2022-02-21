@@ -1,31 +1,23 @@
 import { Fragment,useState} from "react";
-import { useParams } from "react-router-dom";
-import { useProducts } from '../../hooks/useProducts.jsx';
+
 import ItemList from './ItemList.jsx';
+import Spinner from "../loading/Spinner.jsx";
+import { useGetProductsFirebase } from "../../hooks/useProductFirebase";
 
 export default function ItemListConteiner() {
 
     const [loadig, setLoadig] = useState(true);
-    const {products} = useProducts({setLoadig});
-    
-    const {id} = useParams();
-
-    const filterCategory = id ? products.filter((products)=> products.category === id) : null;
-
+    const {products} =useGetProductsFirebase({setLoadig});
 
     if(loadig){
-        return <h1>cargando</h1>
+        return <Spinner/>
     }
     
     return (
         <Fragment>
-            {id &&(       
-                <ItemList products={filterCategory}/>     
+            {products &&(       
+                <ItemList products = {products}/>     
             )}
-            {!id &&(
-                <ItemList products={products}/>
-            )}
-
         </Fragment>
     )
 }

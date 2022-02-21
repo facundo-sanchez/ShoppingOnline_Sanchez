@@ -7,7 +7,7 @@ export default function ShoppingContainer() {
   const {items} = useContext(CartContext);
   const {removeItem} = useContext(CartContext);
   const [selectProduct, setselectProduct] = useState(false);
-
+  console.log(items)
   return (
     <div className={Styles.container__cart__shopping}>
       <div className={Styles.container__cart__header}>
@@ -54,7 +54,7 @@ const ItemsCart =({item,removeItem})=>{
     
     <div className={Styles.cart__item}>
       <div>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Google_Translate_logo.svg/800px-Google_Translate_logo.svg.png" alt="#"  />
+        <img src={item.img} alt="#"  />
       </div>
       <div className={Styles.cart__item__description}>
         <div>

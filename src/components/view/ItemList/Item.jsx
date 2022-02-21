@@ -23,7 +23,7 @@ export default function Item({product}) {
       <article>
         <Link to={`/item/${product.id}`}>
           <div className={Styles.item__img}>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Google_Translate_logo.svg/800px-Google_Translate_logo.svg.png" alt="#" />
+            <img src={product.img} alt="#" />
           </div>
           
           <div className={Styles.item__information}>

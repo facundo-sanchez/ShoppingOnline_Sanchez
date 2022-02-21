@@ -9,7 +9,7 @@ import { CartContext } from '../../context/CartContext';
 
 
 //separar confirmar compra con item count
-export default function ItemDetails({selectedItem}) {
+export default function ItemDetails({product}) {
   const [stock, setStock] = useState(1);
   const [productSelect, setProductSelect] = useState(false);
 
@@ -19,12 +19,12 @@ export default function ItemDetails({selectedItem}) {
     <Fragment>
   
       <article className={Styles.itemCount__conteiner}>
-        <ItemShopping selectedItem = {selectedItem}/>
+        <ItemShopping product = {product}/>
       
         <div className={Styles.item__count}>
           {!productSelect &&(
             <CountItem 
-              selectedItem={selectedItem}  
+              product={product}  
               stock = {stock} 
               setStock = {setStock} 
               productSelect = {productSelect} 
@@ -41,7 +41,7 @@ export default function ItemDetails({selectedItem}) {
           > 
             <ConfirmItem
               addItem = {addItem}
-              selectedItem={selectedItem}
+              product={product}
               stock = {stock}
             />
           </CSSTransition>
@@ -53,21 +53,20 @@ export default function ItemDetails({selectedItem}) {
    )
 }
 
-const ItemShopping = ({selectedItem})=>{
+const ItemShopping = ({product})=>{
 
   return (
 
       <div className={Styles.item__for__buy}>
-            [PAGE Details]
             <div className={Styles.item__img}>
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Google_Translate_logo.svg/800px-Google_Translate_logo.svg.png" alt="#" />
+              <img src={product.img} alt="#" />
             </div>
-            <div className={Styles.selectedItem}>
-                <h3>${selectedItem.price}</h3>
-                <p>Produc:{selectedItem.produc}</p>
-                <p>Category:{selectedItem.category}</p>
-                <p>Description:{selectedItem.description}</p>
-                <p>stock:{selectedItem.stock}</p>
+            <div className={Styles.product}>
+                <h3>${product.price}</h3>
+                <p>Produc:{product.product}</p>
+                <p>Category:{product.category}</p>
+                <p>Description:{product.description}</p>
+                <p>stock:{product.stock}</p>
             </div>
       </div>
 
@@ -106,18 +105,19 @@ const CountItem = ({selectedItem,stock,setStock,productSelect,setProductSelect,a
   );
 }
 
-const ConfirmItem = ({addItem,selectedItem,stock})=>{
+const ConfirmItem = ({addItem,product,stock})=>{
 
   const addCart = ()=>{
     addItem({
       item:{
-        id:selectedItem.id,
-        category:selectedItem.category,
-        product:selectedItem.produc,
-        description:selectedItem.description,
-        price:selectedItem.price,
+        id:product.id,
+        img:product.img,
+        category:product.category,
+        product:product.product,
+        description:product.description,
+        price:product.price,
         selected:stock,
-        total:selectedItem.price*stock
+        total:product.price*stock
       }
     })
     //itemBuy({selectedItem,stock})
@@ -128,12 +128,12 @@ const ConfirmItem = ({addItem,selectedItem,stock})=>{
     <div className={Styles.icon__buy}>
       <div className={Styles.selectedItem}>
         <h2>Purchase details</h2>
-        <p>Price: {selectedItem.price} </p>
+        <p>Price: {product.price} </p>
         <p>Selected:{stock}</p>
-        <p>Produc:{selectedItem.produc}</p>
-        <p>Description:{selectedItem.description}</p>
-        <p>Category:{selectedItem.category}</p>
-        <h3>Total ${selectedItem.price*stock}</h3>
+        <p>Produc:{product.produc}</p>
+        <p>Description:{product.description}</p>
+        <p>Category:{product.category}</p>
+        <h3>Total ${product.price*stock}</h3>
       </div>
 
       <Link to={'/cart'}><button onClick={addCart}>Finish buying</button></Link>

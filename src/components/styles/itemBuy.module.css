@@ -4,7 +4,7 @@
     
 }
 .item__for__buy{
-    flex: 1 1 auto;
+    flex: 1 1 40%;
 
 }
 .item__count{
@@ -34,7 +34,7 @@
     padding: 10px;
 }
 .item__img img{
-    width: 200px;
+    height: 300px;
 }
 .item__information{
     flex: 1 1 auto;
