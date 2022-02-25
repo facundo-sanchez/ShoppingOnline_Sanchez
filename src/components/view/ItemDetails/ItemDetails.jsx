@@ -75,12 +75,7 @@ const ItemShopping = ({product})=>{
 
 const CountItem = ({selectedItem,stock,setStock,productSelect,setProductSelect,addItem})=>{
 
-  const addStock = (e)=>{
-    e.preventDefault();
-    addStockItem({selectedItem,stock,setStock})
-  };
 
-  const subtractStock = (e)=>subtractStockItem({stock,setStock});
 
   const addOn = (e) =>  {
     e.preventDefault();
@@ -93,11 +88,7 @@ const CountItem = ({selectedItem,stock,setStock,productSelect,setProductSelect,a
     <div className={Styles.title__count}>
       <h2>Elegir cantidad</h2>
     </div>
-    <div className={Styles.item__buttons}>
-      <button onClick={subtractStock}>-</button>
-      <span>{stock}</span>
-      <button onClick={addStock}>+</button>
-    </div>
+
     <div className={Styles.icon__buy}>
       <button onClick={addOn}>Add to cart</button>
     </div>
@@ -115,9 +106,10 @@ const ConfirmItem = ({addItem,product,stock})=>{
         category:product.category,
         product:product.product,
         description:product.description,
-        price:product.price,
-        selected:stock,
-        total:product.price*stock
+        price:parseFloat(product.price),
+        stock:product.stock,
+        selected:1,
+        total:parseFloat(product.price),
       }
     })
     //itemBuy({selectedItem,stock})

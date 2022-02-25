@@ -2,13 +2,22 @@
     display: flex;
     flex-direction: column;
     margin: 1em 3em 1em 3em;
+    row-gap: 1em;
 }
 
 .container__cart__header{
     display: flex;
     flex-direction: row;
-    
+    background-color: #fff;
+    box-shadow: 2px 1px 5px 0 rgb(0 0 0/20%);
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    height: 50px;
+    border-radius: 10px;
+    column-gap: 1em;
 }
+
 .container__cart{
     display: flex;
     flex-direction: row;
@@ -57,4 +66,63 @@
     color: #333;
     text-align: center;
     justify-self: center;
+}
+.finish__buy__button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+}
+.finish__buy__button button{
+    border: none;
+    background-color: #fff159;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+/*ITEM COUNT*/
+
+.title__count,.item__buttons{
+    padding: 20px 20px
+}
+
+.item__buttons button{
+    cursor: pointer;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px 20px;
+}
+.item__buttons button:nth-child(1){
+    background-color: #ff5a5f;
+}
+.item__buttons button:nth-child(1):hover{
+    background-color: #fd787c;
+}
+
+.item__buttons button:nth-child(3){
+    background-color: #5aff83;
+}
+.item__buttons button:nth-child(3):hover{
+    background-color: #7cff9d;
+}
+
+.icon__buy button{
+    box-shadow: 2px 1px 5px 0 rgb(0 0 0/20%);
+    cursor: pointer;
+    padding: 10px 40px;
+    background-color: #fff;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    font-size: 20px;
+}
+.icon__buy button:hover{
+    background-color: #007bff;
+    color: white;
+    box-shadow: none;
 }

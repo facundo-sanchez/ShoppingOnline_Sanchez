@@ -6,6 +6,7 @@ import Header from '../layout/header/Header';
 import Footer from '../layout/footer/Footer';
 import ShoppingContainer from '../view/shopping/ShoppingContainer';
 import ItemFavorites from '../view/ItemFavorites/ItemFavorites';
+import ItemCheckout from '../view/ItemCheckout/ItemCheckout';
 
 
 export default function Routes() {
@@ -44,6 +45,7 @@ export default function Routes() {
 
                 <Route path='/favorites' element = {<ItemFavorites/>}/>
                 <Route path='/cart' element = {<ShoppingContainer/>}/>
+                <Route path='/checkout' element = {<ItemCheckout/>}/>
 
                 <Route path='*' element={<h2>Not found</h2>}/>
             </Switch>

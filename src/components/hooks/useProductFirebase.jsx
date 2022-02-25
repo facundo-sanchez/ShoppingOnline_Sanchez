@@ -1,6 +1,7 @@
 import {useState,useEffect} from 'react'
 
 import {
+    addDoc,
     collection,
     doc,
     getDoc,
@@ -96,4 +97,20 @@ export const useGetProductsFirebaseById = ({setLoadig})=>{
     }
     
     return {product,}
+}
+
+export const useFormCheckout = async (order)=>{
+   
+    let idOrder = null;
+    const db = getFirestore();
+    const ordersCollection = collection(db,"orders");
+
+    //await addDoc(ordersCollection,order).then(({ id }) => idOrder = id);
+    try{
+        const response = await addDoc(ordersCollection,order)
+        idOrder = response.id
+    }catch(e){
+        console.log(e)
+    }
+    return idOrder;
 }
