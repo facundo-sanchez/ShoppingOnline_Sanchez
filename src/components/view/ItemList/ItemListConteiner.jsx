@@ -1,4 +1,4 @@
-import { Fragment,useState} from "react";
+import {useState} from "react";
 
 import ItemList from './ItemList.jsx';
 import Spinner from "../loading/Spinner.jsx";
@@ -14,10 +14,10 @@ export default function ItemListConteiner() {
     }
     
     return (
-        <Fragment>
+        <>
             {products &&(       
                 <ItemList products = {products}/>     
             )}
-        </Fragment>
+        </>
     )
 }

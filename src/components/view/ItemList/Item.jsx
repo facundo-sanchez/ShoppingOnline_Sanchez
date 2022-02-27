@@ -1,23 +1,9 @@
-import { Fragment ,useContext} from "react";
+import { Fragment} from "react";
 import Styles from '../../styles/itemList.module.css';
 import { Link } from "react-router-dom";
-import { CartContext } from "../../context/CartContext";
 
 export default function Item({product}) {
 
-  const {addFavorites} = useContext(CartContext)
-
-  const addItemFavorites = ()=>{
-    addFavorites({
-      item:{
-      id:product.id,
-      category:product.category,
-      product:product.produc,
-      description:product.description,
-      price:product.price,
-    }});
-  }
-  
   return (        
     <Fragment>
       <article>
@@ -31,9 +17,6 @@ export default function Item({product}) {
               <p>{product.category}</p>
           </div>
         </Link>
-        <div className={Styles.item__buttons}>
-          <button onClick={addItemFavorites}>Favorites</button>
-        </div>
       </article>
     </Fragment>
     );

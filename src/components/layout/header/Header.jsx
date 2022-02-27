@@ -128,14 +128,6 @@ const NavBarUser = ({countFavorites,countBuys})=>{
                         </span>
                     </NavLink>
                 </li>
-                <li>
-                <NavLink to="/favorites">
-                <FontAwesomeIcon icon={faHeart} className={Styles.icon_user}/>
-                    <span className={Styles.user__favorites}>
-                        {countFavorites ? countFavorites : '' }
-                    </span>
-                </NavLink>
-                </li>
             </ul>
         </div>
     )
