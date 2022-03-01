@@ -94,3 +94,14 @@
     color: white;
     box-shadow: none;
 }
+.not__found{
+    background-color: #fff;
+    margin: 5em;
+    height: 45vh;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 1em;
+    border-radius: 10px;
+}

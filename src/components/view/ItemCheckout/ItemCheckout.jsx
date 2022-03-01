@@ -8,34 +8,60 @@ import { Link } from 'react-router-dom';
 export default function ItemCheckout() {
   const { items } = useContext(CartContext)
   const { calculateTotal } = useContext(CartContext)
+  const {finishedBuy} = useContext(CartContext)
 
   const [buyer, setBuyer] = useState(null);
   const [orderId, setOrderId] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [validateForm, setValidateForm] = useState(true)
   const total = (calculateTotal()).toFixed(3);
 
   const validateString = (event) => {
-    console.log(orderId)
     const newValues = {
       ...buyer,
       [event.target.name]: event.target.value,
     }
     setBuyer(newValues)
+
+  }
+
+  const isValidateForm = ()=>{
+    if(buyer.email.length >6 && buyer.repeat_email.length>6){
+      if(buyer.email === buyer.repeat_email){
+        return true;
+      }else{
+        return false;
+      }
+    }
   }
 
   const useFormSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
-    const order = {
-      buyer, items: [...items]
-    }
+    const validate = isValidateForm();
+    if(validate){
+      const date = new Date();
+      setLoading(true);
+      
+      const user = {name:buyer.name,email:buyer.email,phone:buyer.phone}
+      const order = {
+        user, items: [...items],date
+      }
 
-    setOrderId(await useFormCheckout(order));
-    setLoading(false);
+      // eslint-disable-next-line react-hooks/rules-of-hooks
+      setOrderId(await useFormCheckout(order));
+      finishedBuy();
+      setLoading(false); 
+    }else{
+      setValidateForm(false);
+    }
+     
+    
   }
+
   if (loading) {
     return <Spinner />
   }
+
   return (
 
     <>
@@ -55,23 +81,35 @@ export default function ItemCheckout() {
       {!orderId && (
         <div className={Styles.container__product}>
           <div className={Styles.container__form}>
-            <form>
+            <form onSubmit={useFormSubmit}>
               <div className={Styles.form__group}>
                 <label>Name</label>
-                <input type="text" name="name" id="" placeholder='Name' onChange={validateString} />
+                <input type="text" name="name" id="" placeholder='Name' onChange={validateString} required/>
               </div>
               <div className={Styles.form__group}>
                 <label>Email</label>
-                <input type="text" name="email" id="" placeholder='Email' onChange={validateString} />
+                <input type="email" name="email" id="" placeholder='Email' onChange={validateString} required/>
+              </div>
+              <div className={Styles.form__group}>
+                <label>Repeat Email</label>
+                <input type="email" name="repeat_email" id="" placeholder='Repeat email' onChange={validateString} required/>
               </div>
               <div className={Styles.form__group}>
                 <label>Phone</label>
-                <input type="text" name="phone" id="" placeholder='Phone' onChange={validateString} />
+                <input type="number" name="phone" id="" placeholder='Phone' onChange={validateString} required/>
               </div>
               <div className={Styles.form__group}>
-                <button onClick={useFormSubmit}>Buy</button>
+                <button type='submit'>Buy</button>
               </div>
+              {!validateForm &&(
+
+                <div className={Styles.card__error}>
+                  Email does not match
+                </div>
+              )}
+
             </form>
+
           </div>
           <div className={Styles.container__item}>
             <div className={Styles.item__header}>

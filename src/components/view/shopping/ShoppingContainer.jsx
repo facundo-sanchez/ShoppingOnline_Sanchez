@@ -3,14 +3,15 @@ import { CartContext } from '../../context/CartContext'
 import { Link } from "react-router-dom";
 
 import Styles from '../../styles/CartShopping.module.css';
+
 export default function ShoppingContainer() {
 
   const { items } = useContext(CartContext);
   const { removeItem } = useContext(CartContext);
   const { countBuys } = useContext(CartContext);
+  const { addStockItem } = useContext(CartContext)
+  const { subtractStockItem } = useContext(CartContext)
   const [finish, setFinish] = useState(false);
-
-
 
   const finishBuy = () => {
     setFinish(true);
@@ -49,6 +50,8 @@ export default function ShoppingContainer() {
                 {items.map(({ item }) => (
                   <ItemsCart key={item.id}
                     item={item}
+                    addStockItem={addStockItem}
+                    subtractStockItem={subtractStockItem}
                     removeItem={removeItem}
                   />
                 ))}
@@ -65,7 +68,7 @@ export default function ShoppingContainer() {
     </div>
   )
 }
-const ItemsCart = ({ item, removeItem }) => {
+const ItemsCart = ({ item, addStockItem, subtractStockItem, removeItem }) => {
   const [stockSelected, setStockSelected] = useState(item.selected);
   const [total, setTotal] = useState(item.total);
   const deleteItem = () => {
@@ -75,11 +78,9 @@ const ItemsCart = ({ item, removeItem }) => {
   const addStock = (e) => {
     e.preventDefault();
     if (item.selected < item.stock) {
-
-      setStockSelected(item.selected + 1);
-      item.selected = item.selected + 1;
-      item.total = item.price * item.selected;
-      setTotal(item.total)
+      const itemModify = addStockItem(item);
+      setStockSelected(itemModify.selected);
+      setTotal(itemModify.total)
     }
 
   };
@@ -87,36 +88,35 @@ const ItemsCart = ({ item, removeItem }) => {
   const subtractStock = (e) => {
     e.preventDefault();
     if (item.selected > 1) {
-      setStockSelected(item.selected - 1);
-      item.selected = item.selected - 1;
-      item.total = item.price * (item.selected);
-      setTotal(item.total)
+      const itemModify = subtractStockItem(item)
+      setStockSelected(itemModify.selected);
+      setTotal(itemModify.total)
     }
   };
   return (
 
     <div className={Styles.cart__item}>
-      <div>
+      <div className={Styles.cart__item__img}>
         <img src={item.img} alt="#" />
       </div>
       <div className={Styles.cart__item__description}>
         <div>
           <h3>Produc:{item.product}</h3>
         </div>
+        <div className={Styles.item__buttons}>
+          <button onClick={subtractStock}>-</button>
+          <span>{stockSelected}</span>
+          <button onClick={addStock} >+</button>
+        </div>
         <div>
-          <div className={Styles.item__buttons}>
-            <button onClick={subtractStock}>-</button>
-            <span>{stockSelected}</span>
-            <button onClick={addStock} >+</button>
-          </div>
           <span>Stock: {item.stock}</span>
         </div>
-        <div>
-          <span className={Styles.item__price}>{total.toFixed(3)}</span>
-        </div>
-        <div>
-          <button onClick={deleteItem}>Delete</button>
-        </div>
+      </div>
+      <div>
+        <span className={Styles.item__price}>${total.toFixed(3)}</span>
+      </div>
+      <div className={Styles.button__delete}>
+        <button onClick={deleteItem}>Delete</button>
       </div>
     </div>
   )

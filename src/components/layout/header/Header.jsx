@@ -1,8 +1,8 @@
 import Styles from '../../styles/header.module.css'
 import '../../styles/CssTransition.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch,faHome ,faList,faShoppingCart,faHeart,faTags,faIdBadge,faQuestionCircle,faTimesCircle} from '@fortawesome/free-solid-svg-icons'
-import { useState,useContext } from 'react';
+import { faSearch,faHome ,faList,faShoppingCart,faIdBadge,faTimesCircle} from '@fortawesome/free-solid-svg-icons'
+import { useState,useContext,useRef } from 'react';
 import {CSSTransition} from 'react-transition-group';
 import { NavLink } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
@@ -11,7 +11,7 @@ export default function ConteinerHeader() {
     const [categoryMenu,setCategoryMenu] = useState(false);
 
     const {countBuys,countFavorites} = useContext(CartContext)
-
+    const nodeRef = useRef(null)
     return(            
         <header>
             <div className={Styles.conteiner__header__first}>
@@ -31,6 +31,7 @@ export default function ConteinerHeader() {
                 
                 <CSSTransition
                     in = {categoryMenu}
+                    ref={nodeRef}
                     timeout={500}
                     classNames={'navbar'}
                     unmountOnExit>
@@ -92,24 +93,24 @@ const NavbarMenu = ({setCategoryMenu})=>{
                             Categories
                     </span>
                 </li>
-                <li className={Styles.navbar__item}>
+{/*                 <li className={Styles.navbar__item}>
                     <NavLink to="/offers">
                         <FontAwesomeIcon icon={faTags} className={Styles.icon}/>
                         Offers
                     </NavLink> 
-                </li>
+                </li> */}
                 <li  className={Styles.navbar__item}>
                     <NavLink to="/contact">
                         <FontAwesomeIcon icon={faIdBadge} className={Styles.icon}/>
                         Contact
                     </NavLink>
                 </li>
-                <li className={Styles.navbar__item}>
+{/*                 <li className={Styles.navbar__item}>
                     <NavLink to="/help">
                         <FontAwesomeIcon icon={faQuestionCircle} className={Styles.icon}/>
                         Help
                     </NavLink>
-                </li>
+                </li> */}
             </ul>
            
         </nav>

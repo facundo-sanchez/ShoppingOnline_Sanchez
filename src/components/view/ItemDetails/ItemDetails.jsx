@@ -10,15 +10,27 @@ export default function ItemDetails({ product }) {
 
   return (
     <>
-      <article className={Styles.itemCount__conteiner}>
-        <ItemShopping product={product} />
-        <div className={Styles.item__count}>
-          <CountItem
-            product={product}
-            addItem={addItem}
-          />
+      {product.product && (
+        <article className={Styles.itemCount__conteiner}>
+          <ItemShopping product={product} />
+          <div className={Styles.item__count}>
+            <CountItem
+              product={product}
+              addItem={addItem}
+            />
+          </div>
+        </article>
+      )}
+
+      {!product.product && (
+        <div className={Styles.not__found}>
+          <div>
+            <h2>ERROR 404</h2></div>
+          <div> 
+            <p>Product not found</p>
+          </div>
         </div>
-      </article>
+      )}
     </>
   )
 }

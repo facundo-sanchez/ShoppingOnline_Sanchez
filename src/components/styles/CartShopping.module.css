@@ -35,20 +35,26 @@
     background-color: #fff;
     box-shadow: 2px 1px 5px 0 rgb(0 0 0/20%);
     display: flex;
-
+    align-items: center;
     column-gap: 1em;
+    
 }
 .cart__item img{
-    height: 200px;
+    height: 150px;
+}
+.cart__item__img{
+    width: 300px;
+    text-align: center;
+    
 }
 .cart__item__description{
    flex: 1 1 auto;
    display: flex;
    flex-direction: column;
    justify-content: center;
-
    row-gap: 1em;
 }
+
 .item__price{
     font-size: 24px;
     color: #333;
@@ -86,7 +92,7 @@
 
 /*ITEM COUNT*/
 
-.title__count,.item__buttons{
+.title__count{
     padding: 20px 20px
 }
 
@@ -112,17 +118,12 @@
     background-color: #7cff9d;
 }
 
-.icon__buy button{
-    box-shadow: 2px 1px 5px 0 rgb(0 0 0/20%);
+.button__delete button{
+    background-color: #ff5a5f;
     cursor: pointer;
-    padding: 10px 40px;
-    background-color: #fff;
-    border: 1px solid #007bff;
-    border-radius: 5px;
-    font-size: 20px;
-}
-.icon__buy button:hover{
-    background-color: #007bff;
     color: white;
-    box-shadow: none;
+    border: none;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px 20px;
 }
