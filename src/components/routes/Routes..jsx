@@ -1,4 +1,4 @@
-import { React, useContext,useEffect} from 'react'
+import { React} from 'react'
 import { BrowserRouter,Route,Routes as Switch} from 'react-router-dom';
 import ItemDetailsContainer from '../view/ItemDetails/ItemDetailsContainer';
 import ItemListConteiner from '../view/ItemList/ItemListConteiner';
@@ -6,13 +6,10 @@ import Header from '../layout/header/Header';
 import Footer from '../layout/footer/Footer';
 import ShoppingContainer from '../view/shopping/ShoppingContainer';
 import ItemCheckout from '../view/ItemCheckout/ItemCheckout';
-import { CartContext } from '../context/CartContext';
 
 export default function Routes() {
-    const {getItems} = useContext(CartContext);
-    useEffect(() => {
-        getItems();
-    }, []);
+    //const {getItems} = useContext(CartContext);
+
     
   return (
 

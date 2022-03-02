@@ -70,7 +70,7 @@ export default function ShoppingContainer() {
 }
 const ItemsCart = ({ item, addStockItem, subtractStockItem, removeItem }) => {
   const [stockSelected, setStockSelected] = useState(item.selected);
-  const [total, setTotal] = useState(item.total);
+  const [total, setTotal] = useState(item.subtotal);
   const deleteItem = () => {
     removeItem(item);
   }
@@ -80,7 +80,7 @@ const ItemsCart = ({ item, addStockItem, subtractStockItem, removeItem }) => {
     if (item.selected < item.stock) {
       const itemModify = addStockItem(item);
       setStockSelected(itemModify.selected);
-      setTotal(itemModify.total)
+      setTotal(itemModify.subtotal)
     }
 
   };
@@ -89,8 +89,9 @@ const ItemsCart = ({ item, addStockItem, subtractStockItem, removeItem }) => {
     e.preventDefault();
     if (item.selected > 1) {
       const itemModify = subtractStockItem(item)
+      console.log(itemModify)
       setStockSelected(itemModify.selected);
-      setTotal(itemModify.total)
+      setTotal(itemModify.subtotal)
     }
   };
   return (
@@ -101,7 +102,7 @@ const ItemsCart = ({ item, addStockItem, subtractStockItem, removeItem }) => {
       </div>
       <div className={Styles.cart__item__description}>
         <div>
-          <h3>Produc:{item.product}</h3>
+          <h3>{item.product}</h3>
         </div>
         <div className={Styles.item__buttons}>
           <button onClick={subtractStock}>-</button>

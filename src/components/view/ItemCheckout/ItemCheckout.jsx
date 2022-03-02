@@ -44,13 +44,14 @@ export default function ItemCheckout() {
       
       const user = {name:buyer.name,email:buyer.email,phone:buyer.phone}
       const order = {
-        user, items: [...items],date
+        user, items: [...items],date,total
       }
 
       // eslint-disable-next-line react-hooks/rules-of-hooks
       setOrderId(await useFormCheckout(order));
       finishedBuy();
       setLoading(false); 
+      console.log(order);
     }else{
       setValidateForm(false);
     }
@@ -150,7 +151,7 @@ const Items = ({ item }) => {
           x{item.selected}
         </div>
         <div>
-          {item.total}
+          {item.subtotal}
         </div>
 
       </div>

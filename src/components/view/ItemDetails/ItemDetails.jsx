@@ -59,7 +59,7 @@ const CountItem = ({ product, addItem }) => {
         price: parseFloat(product.price),
         stock: product.stock,
         selected: 1,
-        total: parseFloat(product.price),
+        subtotal: parseFloat(product.price),
       }
     })
   };
